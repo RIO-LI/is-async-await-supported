@@ -13,7 +13,11 @@
   },
   "keywords": [
     "async",
-    "await"
+    "await",
+    "check async",
+    "async support",
+    "rioli",
+    "RIO-LI"
   ],
   "author": "RIO-LI",
   "license": "MIT",
