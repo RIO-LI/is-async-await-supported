@@ -1,6 +1,6 @@
 {
   "name": "is-async-await-supported",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "check if async/await is available, it can run in browser and nodejs",
   "main": "lib/is-async-await-supported.js",
   "scripts": {
@@ -30,7 +30,6 @@
     "webpack-cli": "^3.1.2",
     "typescript": "^3.2.2",
     "ts-loader": "^5.3.1",
-    "function.name-polyfill": "^1.0.6",
     "requirejs": "^2.3.6"
   }
 }
