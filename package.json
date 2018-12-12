@@ -1,6 +1,6 @@
 {
   "name": "is-async-await-supported",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "description": "check if async/await is available, it can run in browser and nodejs",
   "main": "lib/is-async-await-supported.js",
   "module": "./lib/is-async-await-supported.esm.js",
