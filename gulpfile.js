@@ -7,14 +7,14 @@ const sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('prod', function () {
     return gulp.src('src/**/*.ts')
-        .pipe(sourcemaps.init())
+        // .pipe(sourcemaps.init())
         .pipe(ts({
             target: "es2015",
             module: "es2015"
         }))
         .pipe(uglify())
         .pipe(rename('is-async-await-supported.esm.min.js'))
-        .pipe(sourcemaps.write('.', { includeContent: false }))
+        // .pipe(sourcemaps.write('.', { includeContent: false }))
         .pipe(gulp.dest('lib'));
 });
 
