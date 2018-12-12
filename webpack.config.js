@@ -1,19 +1,16 @@
 const path = require('path');
-const webpack = require('webpack');
+const argv = require('process-argv')();
 
-const args = process.argv.splice(2);
-let filename = 'is-async-await-supported';
-let productionBuild = false;
-if (args && args[0] == '--mode=production') {
-    filename = `${filename}.min`;
-    productionBuild = true;
-}
+const isProdMode = argv.options.mode == 'production' ? true : false
+
 module.exports = {
+    mode: isProdMode ? 'production' : 'development',
     entry: './src/index.ts',
     output: {
         path: path.resolve(__dirname, 'lib'),
-        filename: `${filename}.js`,
-        libraryTarget: 'umd'
+        filename: `is-async-await-supported${isProdMode ? '.min' : ''}.js`,
+        libraryTarget: 'umd',
+        globalObject: 'typeof self !== "undefined" ? self : this'
     },
     resolve: {
         extensions: [".ts", ".tsx", ".js"]
@@ -21,12 +18,17 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.ts$/,
-                use: 'ts-loader'
+                test: /\.ts?$/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: 'ts-loader'
+                    }
+                ]
             }
         ]
     },
     optimization: {
-        minimize: productionBuild ? true : false
+        minimize: !!isProdMode
     }
 };

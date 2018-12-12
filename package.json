@@ -3,9 +3,14 @@
   "version": "0.0.3",
   "description": "check if async/await is available, it can run in browser and nodejs",
   "main": "lib/is-async-await-supported.js",
+  "module": "./lib/is-async-await-supported.esm.js",
   "scripts": {
-    "build:dev": "webpack --mode=development",
-    "build:prod": "webpack --mode=production"
+    "clean": "rimraf lib coverage",
+    "build:all": "npm run clean & npm run build:dev & npm run build:prod & npm run build:es6:dev & npm run build:es6:prod",
+    "build:dev": "webpack --mode development",
+    "build:prod": "webpack --mode production",
+    "build:es6:dev": "gulp dev",
+    "build:es6:prod": "gulp prod"
   },
   "repository": {
     "type": "git",
@@ -30,6 +35,14 @@
     "webpack-cli": "^3.1.2",
     "typescript": "^3.2.2",
     "ts-loader": "^5.3.1",
-    "requirejs": "^2.3.6"
+    "requirejs": "^2.3.6",
+    "rimraf": "^2.6.2",
+    "process-argv": "^1.0.0",
+    "gulp": "^4.0.0",
+    "gulp-typescript": "^5.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-uglify-es": "^1.0.4",
+    "gulp-sourcemaps": "^2.6.4",
+    "jasmine": "^3.3.1"
   }
 }
